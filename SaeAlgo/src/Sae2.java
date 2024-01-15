@@ -82,4 +82,33 @@ public class Sae2 {
             t[j] = pivot;
         }
     }
+    public static boolean chercherInt (int[] tab,int a){
+        for (int i = 0; i < tab.length; i++) {
+            if(tab[i] == a){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int dichotomie (int[] tab,int valRecher){
+        int debut = 0;
+        int fin = tab.length-1;
+        int milieu;
+        int valMilieu;
+
+        while(debut<= fin){
+            milieu = (debut+fin) / 2;
+            valMilieu = tab[milieu];
+
+            if(valMilieu == valRecher){
+                return valMilieu;
+            }else if (valMilieu < valRecher){
+                debut = milieu + 1;
+            }else{
+                fin = milieu -1;
+            }
+        }
+        return -1;
+    }
 }
