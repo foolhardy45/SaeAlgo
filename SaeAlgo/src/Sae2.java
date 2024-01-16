@@ -138,15 +138,26 @@ public class Sae2 {
         if (tableau.length == 0) {
             return -1;
         }
+        int debut = 0;
+        int fin = tableau.length - 1;
         int indicePlusProche = 0;
         int differenceMin = Math.abs(tableau[0] - valeurRecherche);
 
-        for (int i = 1; i < tableau.length; i++) {
-            int differenceCourante = Math.abs(tableau[i] - valeurRecherche);
+        while (debut <= fin) {
+            int milieu = (debut + fin) / 2;
+            int differenceCourante = Math.abs(tableau[milieu] - valeurRecherche);
 
-            if (differenceCourante < differenceMin || (differenceCourante == differenceMin && tableau[i] > tableau[indicePlusProche])) {
+            if (differenceCourante < differenceMin || (differenceCourante == differenceMin && tableau[milieu] > tableau[indicePlusProche])) {
                 differenceMin = differenceCourante;
-                indicePlusProche = i;
+                indicePlusProche = milieu;
+            }
+
+            if (tableau[milieu] == valeurRecherche) {
+                return tableau[milieu];
+            } else if (tableau[milieu] < valeurRecherche) {
+                debut = milieu + 1;
+            } else {
+                fin = milieu - 1;
             }
         }
 
