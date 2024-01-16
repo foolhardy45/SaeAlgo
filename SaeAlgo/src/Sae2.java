@@ -82,13 +82,13 @@ public class Sae2 {
             t[j] = pivot;
         }
     }
-    public static boolean chercherInt (int[] tab,int a){
-        for (int i = 0; i < tab.length; i++) {
-            if(tab[i] == a){
-                return true;
+    public static int chercherInt (int[] tab,int a){
+        for (int j : tab) {
+            if (j == a) {
+                return j;
             }
         }
-        return false;
+        return -1;
     }
 
     public static int dichotomie (int[] tab,int valRecher){
