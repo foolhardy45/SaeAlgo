@@ -11,9 +11,9 @@ public class Main {
 
         int i;
         for (i = 0; i < 10; i++) {
-            int[] tab = Sae2.générerTableauTriéParOrdreDecroissant(999999999);
+            int[] tab = Sae2.générerTableauTriéParOrdreCroissant(999999999);
             float tempsDebut = System.nanoTime();
-            Sae2.dichotomie(tab, 300000);
+            Sae2.chercherInt(tab, 300000);
             float tempsFin = System.nanoTime();
             moytemps = (tempsFin - tempsDebut) + moytemps;
             System.out.println("Le programme a pris " + ((tempsFin - tempsDebut) / 10000000) + " secondes pour s'exécuter.");
