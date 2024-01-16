@@ -111,4 +111,15 @@ public class Sae2 {
         }
         return -1;
     }
+
+    public static int valPlusProche(int[] tab, int a){
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] == a) {
+                System.out.println("la valeur la plus proche de " + a + " est " + tab[i] + " car c'est elle même");
+            }
+
+
+        }
+        return -1;
+    }
 }
