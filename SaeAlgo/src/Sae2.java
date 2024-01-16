@@ -131,25 +131,25 @@ public class Sae2 {
                     indicePlusProche = i;
                 }
             }
-            return tab[indicePlusProche];
         }
-        return -1;
+        return tab[indicePlusProche];
     }
-    public static int valPlusProcheDichotomie(int[] tab, int valRecher) {
-        int indicePlusProche = dichotomie(tab, valRecher);
+    public static int valPlusProcheDichotomie(int[] tableau, int valeurRecherche) {
+        if (tableau.length == 0) {
+            return -1;
+        }
+        int indicePlusProche = 0;
+        int differenceMin = Math.abs(tableau[0] - valeurRecherche);
 
-        // Gérer le cas où l'indicePlusProche est 0 ou égal à la longueur du tab
-        if (indicePlusProche == 0) {
-            return tab[0];
-        } else if (indicePlusProche == tab.length) {
-            return tab[tab.length - 1];
+        for (int i = 1; i < tableau.length; i++) {
+            int differenceCourante = Math.abs(tableau[i] - valeurRecherche);
+
+            if (differenceCourante < differenceMin || (differenceCourante == differenceMin && tableau[i] > tableau[indicePlusProche])) {
+                differenceMin = differenceCourante;
+                indicePlusProche = i;
+            }
         }
 
-        // Comparer les valeurs à gauche et à droite de l'indicePlusProche
-        int valeurGauche = tab[indicePlusProche - 1];
-        int valeurDroite = tab[indicePlusProche];
-
-        // Choisir la valeur la plus proche en cas d'égalité de distance
-        return (Math.abs(valRecher - valeurGauche) <= Math.abs(valRecher - valeurDroite)) ? valeurGauche : valeurDroite;
+        return tableau[indicePlusProche];
     }
 }
