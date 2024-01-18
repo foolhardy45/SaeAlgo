@@ -4,17 +4,23 @@ import java.util.Random;
 public class Sae2 {
 
     public static void main(String[] args) {
+        float moytemps = 0;
 
-        int[] tab = générerTabAleatoire(300000);
+        int i;
+        for (i = 0; i < 10; i++) {
 
-        long tempsDébut = System.nanoTime();
 
-        Arrays.sort(tab); // trie le tab en utilisant un algorithme de type Quicksort
+            int[] tab = générerTabAleatoire(300000);
 
-        long tempsFin = System.nanoTime();
+            long tempsDébut = System.nanoTime();
 
-        System.out.println("Temps de calcul en millisecondes: " + ((tempsFin - tempsDébut) / 1000000));
+            Arrays.sort(tab); // trie le tab en utilisant un algorithme de type Quicksort
 
+            long tempsFin = System.nanoTime();
+            moytemps = (tempsFin - tempsDébut) + moytemps;
+            System.out.println("Temps de calcul en millisecondes: " + ((tempsFin - tempsDébut) / 1000000));
+        }
+        System.out.println("la moyenne est de " + (moytemps / i)/1000000 );
         //System.out.println(Arrays.toString(tab));
 
     }
